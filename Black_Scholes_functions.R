@@ -54,3 +54,17 @@ plot_MC_diffusion <- function(init_value,r,sigm,n,N_sim){
 
   print(p)
 }
+
+# European call option
+
+eur_options <- function(S_init,K,t,r,sigm){
+  a <- (log(S_init/K)+(r-(sigm^2)/2)*t)/(sigm*sqrt(t))
+  b <- a + sigm*sqrt(t)
+  
+  call <- S_init*pnorm(b)-exp(-r*t)*K*pnorm(a)
+  put <- exp(-r*t)*K*pnorm(-a)-S_init*pnorm(-b)
+  
+  return(c(call,put))
+}
+
+eur_options(100,103,1,0.01,0.05)
