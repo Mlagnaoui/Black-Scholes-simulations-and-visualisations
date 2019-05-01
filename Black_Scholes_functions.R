@@ -67,4 +67,3 @@ eur_options <- function(S_init,K,t,r,sigm){
   return(c(call,put))
 }
 
-eur_options(100,103,1,0.01,0.05)
