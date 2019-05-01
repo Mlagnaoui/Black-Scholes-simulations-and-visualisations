@@ -36,12 +36,11 @@ server <- function(input,output){
     plot_MC_diffusion(input$init_value,input$r,input$sigm,input$n,input$N_sim)
   })
   
-  
-  
   output$call <- renderPrint({
     price <- eur_options(input$init_value,input$K,input$t,input$r,input$sigm)
     price[1]
     })
+  
   output$put <- renderPrint({
     price <- eur_options(input$init_value,input$K,input$t,input$r,input$sigm)
     price[2]
